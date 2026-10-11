@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review Intake Workbench</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Review Intake Workbench</h1>
+      <p class="sub">Gangnam Beauty Guide prototype: clinic matching and duplicate candidates for Korean reviews</p>
+    </div>
+    <span class="badge" role="note">Synthetic demonstration data</span>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="input-h">
+      <h2 id="input-h">Input JSON</h2>
+      <p class="hint">An object with <code>clinics</code> (id, name, aliases) and <code>reviews</code> (source, sourceReviewId, clinicName, text; optional language, translationEn, rating, date).</p>
+      <textarea id="input" spellcheck="false" aria-label="Input JSON"></textarea>
+      <div class="actions">
+        <button type="button" id="load-example" class="secondary">Load example</button>
+        <button type="button" id="process">Process reviews</button>
+        <button type="button" id="download" class="secondary" disabled>Download JSON</button>
+      </div>
+      <div id="errors" class="errors" role="alert" hidden></div>
+    </section>
+
+    <section class="panel" aria-labelledby="results-h">
+      <h2 id="results-h">Results</h2>
+      <div class="stats">
+        <div class="stat"><span id="stat-processed">–</span><small>Processed records</small></div>
+        <div class="stat"><span id="stat-unresolved">–</span><small>Unresolved clinic matches</small></div>
+        <div class="stat"><span id="stat-duplicates">–</span><small>Duplicate candidates</small></div>
+      </div>
+      <ul id="disclaimers" class="disclaimers"></ul>
+      <ol id="results" class="results"></ol>
+    </section>
+  </main>
+
+  <footer>
+    All clinics and reviews in the example are fictional. Translations are prepared, not verified. Nothing here is clinical evidence or a medical recommendation.
+  </footer>
+
+  <script src="processing.js"></script>
+  <script src="example-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
